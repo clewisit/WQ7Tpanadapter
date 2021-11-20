@@ -1,6 +1,9 @@
 # WQ7Tpanadapter
 A very enhanced panadapter program for the Raspberrypi based on the original FreqShow
 
+This version has been modified to fix indentation issues preventing it from working with
+newer versions of python and the ability to demodulate/decode and output analog/digital 
+audio (based on drewby08/FreqShow with additional improvements)
 
 INSTALLATION of DEPENDENCIES
 !VERY IMPORTANT!
