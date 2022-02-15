@@ -18,6 +18,7 @@ https://learn.adafruit.com/freq-show-raspberry-pi-rtl-sdr-scanner/installation
 install scripts:
 
 sudo apt-get update
+
 sudo apt-get install cmake build-essential libusb-1.0-0-dev git pandoc
 
 sudo apt-get install python3-numpy python3-scipy python3-matplotlib python3-ipython python3-pandas python3-sympy python3-nose
@@ -25,13 +26,21 @@ sudo apt-get install python3-numpy python3-scipy python3-matplotlib python3-ipyt
 INSTALL RTL-SDR
 
 cd ~
+
 git clone git://git.osmocom.org/rtl-sdr.git
+
 cd rtl-sdr
+
 mkdir build
+
 cd build
+
 cmake ../ -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON
+
 make
+
 sudo make install
+
 sudo ldconfig
 
 sudo pip install pyrtlsdr
@@ -44,13 +53,7 @@ git clone https://github.com/Banjopkr/WQ7Tpanadapter.git
 If you want to use 7" or other large display
 
 sudo cp -r WQ7Tpanadapter/FreqShow_Large FreqShow_Large
+
 sudo cp -r FreqShow_Large/FreqShow.desktop Desktop/FreqShow.desktop
-
-If you want to use 2.8" or other small display
-
-sudo cp -r WQ7Tpanadapter/FreqShow_Small FreqShow_Small
-sudo cp -r FreqShow_Small/FreqShow.desktop Desktop/FreqShow.desktop
-
-Now you should have a launcher file to double click on from the desktop
 
 READ READ READ THE PDF operating manual it will also show you how to save your own deafault parameters!
