@@ -92,15 +92,15 @@ if __name__ == '__main__':
     pygame.font.init()
     pygame.mouse.set_visible(True)
     # Get size of screen and create main rendering surface.
-    # size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
-    size = (800, 480)
+    size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
+    # size = (800, 480)
     screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
     # Display splash screen.
     splash = pygame.image.load('freqshow_splash.png')
     screen.fill(MAIN_BG)
     screen.blit(splash, ui.align(splash.get_rect(), (0, 0, size[0], size[1])))
     
-    window = pygame.display.set_mode((800, 480))
+    window = pygame.display.set_mode(size)
 	pygame.display.set_caption('freqshow')
     
     pygame.display.update()
