@@ -19,38 +19,18 @@ install scripts:
 
 sudo apt-get update
 
-sudo apt-get install cmake build-essential libusb-1.0-0-dev git pandoc
+sudo apt-get upgrade
+
+sudo apt-get install cmake build-essential libusb-1.0-0-dev git pandoc rtl-sdr librtlsdr-dev
 
 sudo apt-get install python3-numpy python3-scipy python3-matplotlib python3-ipython python3-pandas python3-sympy python3-nose
 
-INSTALL RTL-SDR
-
-cd ~
-
-git clone git://git.osmocom.org/rtl-sdr.git
-
-cd rtl-sdr
-
-mkdir build
-
-cd build
-
-cmake ../ -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON
-
-make
-
-sudo make install
-
-sudo ldconfig
-
-sudo pip install pyrtlsdr
+sudo pip3 install pyrtlsdr
 
 INSTALL the WQ7Tpanadapter software 
 
 cd ~
-git clone https://github.com/Banjopkr/WQ7Tpanadapter.git
-
-If you want to use 7" or other large display
+git clone https://github.com/clewisit/WQ7Tpanadapter.git
 
 sudo cp -r WQ7Tpanadapter/FreqShow_Large FreqShow_Large
 
