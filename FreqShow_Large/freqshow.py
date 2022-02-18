@@ -92,7 +92,7 @@ if __name__ == '__main__':
     pygame.font.init()
     pygame.mouse.set_visible(True)
     # Get size of screen and create main rendering surface.
-    size = (pygame.display.Info().current_w, pygame.display.Info().current_h - 100)
+    size = (pygame.display.Info().current_w, pygame.display.Info().current_h - 75)
     # size = (800, 480)
     screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
     # Display splash screen.
