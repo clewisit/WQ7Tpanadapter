@@ -76,7 +76,7 @@ class FreqShowController(object):
             self.rtl_fm_process = subprocess.Popen(
                 ["rtl_fm", "-M", "fm", "-s", "200000", "-r", "48000", "-f", str(freq)], stdout=subprocess.PIPE)
             self.aplay_process = subprocess.Popen(
-                ["aplay", "-r", "48000", "-f", "S16_LE"], stdin=self.rtl_fm_process.stdout)
+                ["aplay", "-D", "pulse", "-r", "48000", "-f", "S16_LE"], stdin=self.rtl_fm_process.stdout)
         else:
             self.rtl_fm_process = subprocess.Popen(
                 ["rtl_fm", "-M", "fm", "-f", str(freq)], stdout=subprocess.PIPE)
