@@ -68,6 +68,8 @@ class FreqShowController(object):
 
         if freq >= 88100000 and freq <= 107900000:
             new_demod_mode = DeModMode.WBFM
+        elif freq >=118000000 and freq <=137000000:
+            new_demod_mode = DeModMode.AM
         else:
             new_demod_mode = DeModMode.NBFM
 
@@ -77,6 +79,11 @@ class FreqShowController(object):
                 ["rtl_fm", "-M", "fm", "-s", "200000", "-r", "48000", "-f", str(freq)], stdout=subprocess.PIPE)
             self.aplay_process = subprocess.Popen(
                 ["aplay", "-r", "48000", "-f", "S16_LE"], stdin=self.rtl_fm_process.stdout)
+        elif new_demodmode == DeModMode.AM:
+            self.rtl_fm_process = subprocess.Popen(
+                ["rtl_fm", "-M", "am", "-s", "12000", "-r", "12000", "-f", str(freq)], stdout=subprocess.PIPE)
+            self.aplay_process = subprocess.Popen(
+                ["aplay", "-r", "12000", "-f", "S16_LE"], stdin=self.rtl_fm_process.stdout)
         else:
             self.rtl_fm_process = subprocess.Popen(
                 ["rtl_fm", "-M", "fm", "-f", str(freq)], stdout=subprocess.PIPE)
