@@ -4,5 +4,5 @@
 
 cd /
 cd home/pi/FreqShow_Large
-sudo python freqshow.py
+python3 freqshow.py
 cd /
