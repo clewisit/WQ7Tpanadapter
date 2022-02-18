@@ -79,7 +79,7 @@ class FreqShowController(object):
                 ["rtl_fm", "-M", "fm", "-s", "200000", "-r", "48000", "-f", str(freq)], stdout=subprocess.PIPE)
             self.aplay_process = subprocess.Popen(
                 ["aplay", "-r", "48000", "-f", "S16_LE"], stdin=self.rtl_fm_process.stdout)
-        elif new_demodmode == DeModMode.AM:
+        elif new_demod_mode == DeModMode.AM:
             self.rtl_fm_process = subprocess.Popen(
                 ["rtl_fm", "-M", "am", "-s", "12000", "-r", "12000", "-f", str(freq)], stdout=subprocess.PIPE)
             self.aplay_process = subprocess.Popen(
