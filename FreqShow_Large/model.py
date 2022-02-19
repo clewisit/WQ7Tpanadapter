@@ -121,11 +121,11 @@ class FreqShowModel(object):
         else:
             freq_hz = float(self.get_center_freq()*1000000)
         self.sdr.set_center_freq(float(freq_hz))
-        if freq_hz<28500000:
-            self.sdr.set_direct_sampling(2)
-        else:
-            self.sdr.set_direct_sampling(0)
-        self._clear_intensity()
+#        if freq_hz<28500000:
+#            self.sdr.set_direct_sampling(2)
+#        else:
+#            self.sdr.set_direct_sampling(0)
+#        self._clear_intensity()
 
     def get_lo_freq(self):
         """Return center frequency of tuner in megahertz."""
