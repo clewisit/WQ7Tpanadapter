@@ -120,7 +120,8 @@ if __name__ == '__main__':
                 lastclick = time.time()
                 fscontroller.current().click(pygame.mouse.get_pos())
             elif event.type == pygame.VIDEORESIZE:
-                self.CreateWindow(event.w,event.h)
+                size = (event.w,event.h)
+                window = pygame.display.set_mode(size, pygame.RESIZABLE)
         # Update and render the current view.
         fscontroller.current().render(screen)
         pygame.display.update()
