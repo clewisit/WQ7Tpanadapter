@@ -123,7 +123,7 @@ if __name__ == '__main__':
                 size = (event.w,event.h)
                 window = pygame.display.set_mode(size, pygame.RESIZABLE)
                 fsmodel = model.FreqShowModel(size[0], size[1])
-                fscontroller = controller.FreqShowController(fsmodel)
+                # fscontroller = controller.FreqShowController(fsmodel)
         # Update and render the current view.
         fscontroller.current().render(screen)
         pygame.display.update()
