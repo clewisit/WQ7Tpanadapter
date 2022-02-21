@@ -119,6 +119,8 @@ if __name__ == '__main__':
                     and (time.time() - lastclick) >= CLICK_DEBOUNCE:
                 lastclick = time.time()
                 fscontroller.current().click(pygame.mouse.get_pos())
+            elif event.type == pygame.VIDEORESIZE:
+                self.CreateWindow(event.w,event.h)
         # Update and render the current view.
         fscontroller.current().render(screen)
         pygame.display.update()
