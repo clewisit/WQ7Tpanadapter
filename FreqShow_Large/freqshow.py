@@ -94,7 +94,8 @@ if __name__ == '__main__':
     # Get size of screen and create main rendering surface.
     # size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
     size = (800, 480)
-    screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
+    # screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
+    screen = pygame.display.set_mode(size, pygame.RESIZABLE)
     # screen = pygame.display.set_mode(size)
     # Display splash screen.
     splash = pygame.image.load('freqshow_splash.png')
@@ -122,8 +123,10 @@ if __name__ == '__main__':
             elif event.type == pygame.VIDEORESIZE:
                 size = (event.w,event.h)
                 window = pygame.display.set_mode(size, pygame.RESIZABLE)
-                fsmodel = model.FreqShowModel(size[0], size[1])
+                # fsmodel = model.FreqShowModel(size[0], size[1])
                 # fscontroller = controller.FreqShowController(fsmodel)
+                screen.blit(splash, ui.align(splash.get_rect(), (0, 0, size[0], size[1])))
+
         # Update and render the current view.
         fscontroller.current().render(screen)
         pygame.display.update()
