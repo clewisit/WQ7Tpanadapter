@@ -92,7 +92,8 @@ if __name__ == '__main__':
     pygame.font.init()
     pygame.mouse.set_visible(True)
     # Get size of screen and create main rendering surface.
-    size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
+    # size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
+    size = (800, 480)
     screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
     # screen = pygame.display.set_mode(size)
     # Display splash screen.
@@ -100,7 +101,6 @@ if __name__ == '__main__':
     screen.fill(MAIN_BG)
     screen.blit(splash, ui.align(splash.get_rect(), (0, 0, size[0], size[1])))
     
-    size = (800, 480)
     window = pygame.display.set_mode(size, pygame.RESIZABLE)
     pygame.display.set_caption('freqshow')
     
@@ -122,6 +122,8 @@ if __name__ == '__main__':
             elif event.type == pygame.VIDEORESIZE:
                 size = (event.w,event.h)
                 window = pygame.display.set_mode(size, pygame.RESIZABLE)
+                fsmodel = model.FreqShowModel(size[0], size[1])
+                fscontroller = controller.FreqShowController(fsmodel)
         # Update and render the current view.
         fscontroller.current().render(screen)
         pygame.display.update()
