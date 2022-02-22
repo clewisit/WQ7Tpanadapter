@@ -122,6 +122,7 @@ if __name__ == '__main__':
                 fscontroller.current().click(pygame.mouse.get_pos())
             elif event.type == pygame.VIDEORESIZE:
                 size = (event.w,event.h)
+                # screen = pygame.display.set_mode(size, pygame.RESIZABLE)
                 window = pygame.display.set_mode(size, pygame.RESIZABLE)
                 pygame.display.update()
                 # screen.blit(splash, ui.align(splash.get_rect(), (0, 0, size[0], size[1])))
@@ -129,5 +130,6 @@ if __name__ == '__main__':
                 # fscontroller = controller.FreqShowController(fsmodel)
 
         # Update and render the current view.
-        fscontroller.current().render(screen)
+        # fscontroller.current().render(screen)
+        fscontroller.current().render(window)
         pygame.display.update()
