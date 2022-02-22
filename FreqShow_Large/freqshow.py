@@ -123,6 +123,7 @@ if __name__ == '__main__':
             elif event.type == pygame.VIDEORESIZE:
                 size = (event.w,event.h)
                 window = pygame.display.set_mode(size, pygame.RESIZABLE)
+                pygame.display.update()
                 # screen.blit(splash, ui.align(splash.get_rect(), (0, 0, size[0], size[1])))
                 # fsmodel = model.FreqShowModel(size[0], size[1])
                 # fscontroller = controller.FreqShowController(fsmodel)
