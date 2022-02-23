@@ -102,7 +102,6 @@ if __name__ == '__main__':
     screen.fill(MAIN_BG)
     screen.blit(splash, ui.align(splash.get_rect(), (0, 0, size[0], size[1])))
     
-    window = pygame.display.set_mode(size, pygame.RESIZABLE)
     pygame.display.set_caption('freqshow')
     
     pygame.display.update()
