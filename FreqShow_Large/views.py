@@ -895,60 +895,60 @@ class InstantSpectrogram(SpectrogramBase):
         # Scale frequency values to fit on the screen based on the min and max intensity values.
         x, y, width, height = screen.get_rect()
         freqs = height - \
-            np.floor(((freqs-self.model.min_intensity)/self.model.range)*height)
+            np.floor(((freqs-self.model.min_intensity)/self.model.range)*(height/2))
 
         # Render frequency graph.
         screen.fill(freqshow.GRID_BG)
         # Draw grid lines for spectrum background
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (0, height/2), (width, height/2))
+                         (0, height/4), (width, height/4))
         pygame.draw.line(screen, freqshow.CENTER_LINE,
-                         (width/2, 0), (width/2, height))
+                         (width/2, 0), (width/2, height/2))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (width/10, 0), (width/10, height))
+                         (width/10, 0), (width/10, height/2))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (2*width/10, 0), (2*width/10, height))
+                         (2*width/10, 0), (2*width/10, height/2))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (3*width/10, 0), (3*width/10, height))
+                         (3*width/10, 0), (3*width/10, height/2))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (4*width/10, 0), (4*width/10, height))
+                         (4*width/10, 0), (4*width/10, height/2))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (6*width/10, 0), (6*width/10, height))
+                         (6*width/10, 0), (6*width/10, height/2))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (7*width/10, 0), (7*width/10, height))
+                         (7*width/10, 0), (7*width/10, height/2))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (8*width/10, 0), (8*width/10, height))
+                         (8*width/10, 0), (8*width/10, height/2))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (9*width/10, 0), (9*width/10, height))
+                         (9*width/10, 0), (9*width/10, height/2))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (0, height/10), (width, height/10))
+                         (0, height/20), (width, height/20))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (0, 2*height/10), (width, 2*height/10))
+                         (0, 2*height/20), (width, 2*height/20))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (0, 3*height/10), (width, 3*height/10))
+                         (0, 3*height/20), (width, 3*height/20))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (0, 4*height/10), (width, 4*height/10))
+                         (0, 4*height/20), (width, 4*height/20))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (0, 6*height/10), (width, 6*height/10))
+                         (0, 6*height/20), (width, 6*height/20))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (0, 7*height/10), (width, 7*height/10))
+                         (0, 7*height/20), (width, 7*height/20))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (0, 8*height/10), (width, 8*height/10))
+                         (0, 8*height/20), (width, 8*height/20))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (0, 9*height/10), (width, 9*height/10))
-        pygame.draw.line(screen, freqshow.GRID_LINE, (0, 0), (0, height-1))
+                         (0, 9*height/20), (width, 9*height/20))
+        pygame.draw.line(screen, freqshow.GRID_LINE, (0, 0), (0, (height/2)-1))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (width-1, 0), (width-1, height-1))
+                         (width-1, 0), (width-1, (height/2)-1))
         pygame.draw.line(screen, freqshow.GRID_LINE, (0, 0), (width-1, 0))
         pygame.draw.line(screen, freqshow.GRID_LINE,
-                         (0, height-1), (width-1, height-1))
+                         (0, (height/2)-1), (width-1, (height/2)-1))
         # Draw 0 DB reference line across screen.
         pygame.draw.line(screen, freqshow.CENTER_LINE, (0, (abs(self.model.max_intensity)/(self.model.max_intensity-self.model.min_intensity)
-                                                            * height)), (width-1, (abs(self.model.max_intensity)/(self.model.max_intensity-self.model.min_intensity)*height)))
+                                                            * (height/2))), (width-1, (abs(self.model.max_intensity)/(self.model.max_intensity-self.model.min_intensity)*(height/2))))
 
         # Draw line segments to join each FFT result bin.
         ylast = freqs[0]
-#		freqs1 = freqs/height
+#		freqs1 = freqs/(height/2)
 
         for i in range(1, width):
             y = freqs[i-1]
@@ -957,7 +957,7 @@ class InstantSpectrogram(SpectrogramBase):
             #pygame.draw.line(screen, self.color_func(power), (i,y+1),(i,y+2))
             pygame.draw.line(screen, freqshow.INPUT_FG, (i-1, ylast), (i, y))
             pygame.draw.line(screen, freqshow.LINE_SHADOW,
-                             (i, y+3), (i, height))
+                             (i, y+3), (i, height/2))
             ylast = y
 
         # End of plot
