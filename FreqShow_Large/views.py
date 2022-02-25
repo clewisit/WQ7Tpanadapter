@@ -894,7 +894,7 @@ class InstantSpectrogram(SpectrogramBase):
 
         # Scale frequency values to fit on the screen based on the min and max intensity values.
         x, y, width, height = screen.get_rect()
-        freqs = height - \
+        freqs = (height/2) - \
             np.floor(((freqs-self.model.min_intensity)/self.model.range)*(height/2))
 
         # Render frequency graph.
