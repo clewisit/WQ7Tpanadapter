@@ -835,7 +835,7 @@ class WaterfallSpectrogram(SpectrogramBase):
     def __init__(self, model, controller):
         super(WaterfallSpectrogram, self).__init__(model, controller)
         self.color_func = gradient_func(freqshow.WATERFALL_GRAD)
-        self.waterfall = pygame.Surface((model.width, model.height))
+        self.waterfall = pygame.Surface((model.width, model.height/2))
 
     def clear_waterfall(self):
         self.waterfall.fill(freqshow.MAIN_BG)
@@ -858,7 +858,7 @@ class WaterfallSpectrogram(SpectrogramBase):
             power = clamp(freqs[i], 0.0, 1.0)
             self.waterfall.set_at((i, wheight-1), self.color_func(power))
         self.waterfall.unlock()
-        screen.blit(self.waterfall, (0, 0), area=(0, offset, width, height/2))
+        screen.blit(self.waterfall, (0, height/2), area=(0, offset, width, height/2))
 
 
 class InstantSpectrogram(SpectrogramBase):
