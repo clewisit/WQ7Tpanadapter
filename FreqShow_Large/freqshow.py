@@ -92,7 +92,7 @@ if __name__ == '__main__':
     pygame.font.init()
     pygame.mouse.set_visible(True)
     # Get size of screen and create main rendering surface.
-    size = (pygame.display.Info().current_w - 4, pygame.display.Info().current_h - 30)
+    size = (pygame.display.Info().current_w - 2, pygame.display.Info().current_h - 40)
     # size = (800, 480)
     # screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
     screen = pygame.display.set_mode(size, pygame.RESIZABLE)
