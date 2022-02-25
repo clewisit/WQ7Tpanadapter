@@ -738,7 +738,7 @@ class SpectrogramBase(ViewBase):
             if not self.controller.isDemodulating():
                 # Draw shrunken spectrogram with overlaid buttons and axes values.
                 spect_rect = (0, self.buttons.row_size, self.model.width,
-                              self.model.height-2*self.buttons.row_size)
+                              (self.model.height/2)-2*self.buttons.row_size)
                 self.render_spectrogram(screen.subsurface(spect_rect))
 
                 # Draw hash marks.
