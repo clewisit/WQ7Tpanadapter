@@ -952,7 +952,7 @@ class InstantSpectrogram(SpectrogramBase):
 #		freqs1 = freqs/(height/2)
 
         for i in range(1, width):
-            y = freqs[i-1]
+            y = freqs[i-1]/2
             #power = 1-freqs1[i]
             #pygame.draw.line(screen, self.color_func(power), (i-1, ylast), (i, y))
             #pygame.draw.line(screen, self.color_func(power), (i,y+1),(i,y+2))
