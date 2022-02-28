@@ -844,7 +844,7 @@ class WaterfallSpectrogram(SpectrogramBase):
         # Grab spectrogram data.
         freqs = self.model.get_data()
         # Scroll up the waterfall display.
-        self.waterfall.scroll(0, -1)
+        self.waterfall.scroll(0, 1)
         # Scale the FFT values to the range 0 to 1.
         freqs = (freqs-self.model.min_intensity)/self.model.range
         # Convert scaled values to pixels drawn at the bottom of the display.
@@ -856,7 +856,8 @@ class WaterfallSpectrogram(SpectrogramBase):
 
         for i in range(width):
             power = clamp(freqs[i], 0.0, 1.0)
-            self.waterfall.set_at((i, wheight-1), self.color_func(power))
+            # self.waterfall.set_at((i, wheight-1), self.color_func(power))
+            self.waterfall.set_at((i, 0), self.color_func(power))
         self.waterfall.unlock()
         screen.blit(self.waterfall, (0, height/2), area=(0, offset, width, (height/2)-200))
 
