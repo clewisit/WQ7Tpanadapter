@@ -859,7 +859,7 @@ class WaterfallSpectrogram(SpectrogramBase):
             # self.waterfall.set_at((i, wheight-1), self.color_func(power))
             self.waterfall.set_at((i, int(height/2)), self.color_func(power))
         self.waterfall.unlock()
-        screen.blit(self.waterfall, (0, height/2), area=(0, offset, width, (height/2)-200))
+        screen.blit(self.waterfall, (0, height/2), area=(0, offset, width, (height/2)))
 
 
 class InstantSpectrogram(SpectrogramBase):
