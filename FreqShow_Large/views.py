@@ -956,7 +956,7 @@ class InstantSpectrogram(SpectrogramBase):
             #power = 1-freqs1[i]
             #pygame.draw.line(screen, self.color_func(power), (i-1, ylast), (i, y))
             #pygame.draw.line(screen, self.color_func(power), (i,y+1),(i,y+2))
-            pygame.draw.line(screen, freqshow.INPUT_FG, (i-1, ylast), (i, y)/2)
+            pygame.draw.line(screen, freqshow.INPUT_FG, (i-1, ylast), (i, y))
             pygame.draw.line(screen, freqshow.LINE_SHADOW,
                              (i, y+3), (i, height/2))
             ylast = y
