@@ -850,7 +850,7 @@ class WaterfallSpectrogram(SpectrogramBase):
         # Convert scaled values to pixels drawn at the bottom of the display.
         x, y, width, height = screen.get_rect()
         wx, wy, wwidth, wheight = self.waterfall.get_rect()
-        offset = wheight - (height/2)
+        offset = wheight/2 - (height/2)
         # Draw FFT values mapped through the gradient function to a color.
         self.waterfall.lock()
 
